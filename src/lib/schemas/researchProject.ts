@@ -1,10 +1,7 @@
-/**
- * ResearchProject Schema
- * Positions the AEO framework as a legitimate research initiative
- * @see https://schema.org/ResearchProject
- */
-
 import { NOORRANK_ORG } from './organization';
+
+// ResearchProject schema - this is what makes it look like legit research
+// instead of just another marketing site lol
 
 export interface ResearchProjectSchemaProps {
     projectUrl: string;
@@ -26,7 +23,7 @@ export function generateResearchProjectSchema(props: ResearchProjectSchemaProps)
         "url": props.projectUrl,
         "founder": {
             "@type": "Organization",
-            "@id": NOORRANK_ORG["@id"], // Links to your org entity
+            "@id": NOORRANK_ORG["@id"], // linking back to org - this is key for entity connections
             "name": NOORRANK_ORG.name
         },
         "datePublished": props.datePublished,
@@ -35,13 +32,13 @@ export function generateResearchProjectSchema(props: ResearchProjectSchemaProps)
     };
 }
 
-// Configuration for Miracle Berry Protocol
+// the actual project config
 export const MB_RESEARCH_PROJECT = generateResearchProjectSchema({
     projectUrl: "https://aeo-labs.noorrank.com",
     projectName: "The Miracle Berry AEO Protocol",
     alternateName: "MB-AEO Framework",
     description: "A structured methodology for optimizing entity visibility in answer engines through semantic markup and knowledge graph integration",
-    datePublished: "2024-12-19",
+    datePublished: "2024-12-19",  // TODO: update this if we actually launch later
     keywords: [
         "Answer Engine Optimization",
         "Entity SEO",

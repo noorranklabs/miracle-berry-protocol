@@ -5,18 +5,19 @@ import path from 'path';
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const DATA_FILE = path.join(DATA_DIR, 'metrics.json');
 
-// Initialize data directory and file
+// make sure data dir and file exist
 async function ensureDataDir() {
     try {
         await fs.access(DATA_DIR);
     } catch {
+        // directory doesn't exist, create it
         await fs.mkdir(DATA_DIR, { recursive: true });
     }
 
     try {
         await fs.access(DATA_FILE);
     } catch {
-        // Create initial metrics file
+        // initialize with first metric
         const initialData = [
             {
                 date: new Date().toISOString().split('T')[0],
@@ -33,6 +34,7 @@ async function ensureDataDir() {
     }
 }
 
+// fetch all metrics
 export async function GET() {
     try {
         await ensureDataDir();
@@ -40,16 +42,17 @@ export async function GET() {
         return NextResponse.json(JSON.parse(data));
     } catch (error) {
         console.error('Error reading metrics:', error);
-        return NextResponse.json([], { status: 200 }); // Return empty array on error
+        return NextResponse.json([], { status: 200 }); // just return empty if something breaks
     }
 }
 
+// add new metric
 export async function POST(request: Request) {
     try {
         await ensureDataDir();
         const newMetric = await request.json();
 
-        // Validation
+        // basic validation - need at least date and metric name
         if (!newMetric.date || !newMetric.metric) {
             return NextResponse.json(
                 { error: 'Missing required fields: date, metric' },
@@ -74,6 +77,7 @@ export async function POST(request: Request) {
     }
 }
 
+// update existing metric
 export async function PATCH(request: Request) {
     try {
         await ensureDataDir();

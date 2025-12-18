@@ -1,9 +1,5 @@
-/**
- * Universal Schema Script Component
- * Safely injects JSON-LD into page head
- * Prevents XSS by escaping < characters
- * @see https://nextjs.org/docs/app/guides/json-ld
- */
+// Component for injecting JSON-LD schemas into pages
+// XSS protection via the replace() - learned this the hard way
 
 interface SchemaScriptProps {
     schema: object | object[];
@@ -12,7 +8,7 @@ interface SchemaScriptProps {
 export function SchemaScript({ schema }: SchemaScriptProps) {
     const schemaArray = Array.isArray(schema) ? schema : [schema];
 
-    // Development-only validation
+    // dev mode validation - super helpful for catching schema issues early
     if (process.env.NODE_ENV === 'development') {
         schemaArray.forEach((schemaItem, index) => {
             const s = schemaItem as any;
@@ -38,6 +34,7 @@ export function SchemaScript({ schema }: SchemaScriptProps) {
                     key={index}
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
+                        // escaping < prevents XSS attacks
                         __html: JSON.stringify(schemaItem).replace(/</g, '\\u003c')
                     }}
                 />

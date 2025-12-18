@@ -1,8 +1,5 @@
-/**
- * Organization Schema Factory
- * Creates consistent Organization entities across all pages
- * @see https://schema.org/Organization
- */
+// Organization schema stuff
+// Using schema.org Organization type for entity definition
 
 export interface OrganizationSchemaProps {
     name: string;
@@ -13,17 +10,17 @@ export interface OrganizationSchemaProps {
 }
 
 export function generateOrganizationSchema(props: OrganizationSchemaProps) {
-    // Validation in development
+    // just checking URLs in dev mode, helps catch mistakes
     if (process.env.NODE_ENV === 'development') {
         if (!props.url.startsWith('http')) {
-            console.warn('⚠️  Organization URL should be absolute (include https://)');
+            console.warn('⚠️  Hey, the URL should probably start with https://');
         }
     }
 
     return {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "@id": `${props.url}/#organization`,
+        "@id": `${props.url}/#organization`, // this ID is important for entity linking
         "name": props.name,
         "url": props.url,
         "logo": {
@@ -37,7 +34,7 @@ export function generateOrganizationSchema(props: OrganizationSchemaProps) {
     };
 }
 
-// Pre-configured NoorRank organization entity
+// our org entity - reused across all pages
 export const NOORRANK_ORG = generateOrganizationSchema({
     name: "NoorRank",
     url: "https://noorrank.com",
