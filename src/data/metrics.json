@@ -1,0 +1,72 @@
+[
+    {
+        "date": "2024-12-19",
+        "metric": "Domain registered",
+        "status": "complete",
+        "googleIndexed": false,
+        "perplexityRecognition": false,
+        "chatgptRecognition": false,
+        "notes": "aeo-labs.noorrank.com live on Vercel",
+        "timestamp": "2024-12-19T00:00:00.000Z"
+    },
+    {
+        "date": "2024-12-19",
+        "metric": "GitHub repository created",
+        "status": "complete",
+        "googleIndexed": false,
+        "perplexityRecognition": false,
+        "chatgptRecognition": false,
+        "notes": "Public repository with full documentation",
+        "timestamp": "2024-12-19T00:30:00.000Z"
+    },
+    {
+        "date": "2024-12-20",
+        "metric": "Google Search Console setup",
+        "status": "pending",
+        "googleIndexed": false,
+        "perplexityRecognition": false,
+        "chatgptRecognition": false,
+        "notes": "Indexing request submitted",
+        "timestamp": "2024-12-20T00:00:00.000Z"
+    },
+    {
+        "date": "2024-12-21",
+        "metric": "Medium article published",
+        "status": "pending",
+        "googleIndexed": false,
+        "perplexityRecognition": false,
+        "chatgptRecognition": false,
+        "notes": "External content distribution",
+        "timestamp": "2024-12-21T00:00:00.000Z"
+    },
+    {
+        "date": "2024-12-22",
+        "metric": "First page indexed",
+        "status": "pending",
+        "googleIndexed": false,
+        "perplexityRecognition": false,
+        "chatgptRecognition": false,
+        "notes": "Target: 3-5 days from launch",
+        "timestamp": "2024-12-22T00:00:00.000Z"
+    },
+    {
+        "date": "2024-12-26",
+        "metric": "Entity recognition test",
+        "status": "pending",
+        "googleIndexed": false,
+        "perplexityRecognition": false,
+        "chatgptRecognition": false,
+        "notes": "Perplexity + ChatGPT queries",
+        "timestamp": "2024-12-26T00:00:00.000Z"
+    },
+    {
+        "date": "2025-01-02",
+        "metric": "Full citation achieved",
+        "status": "pending",
+        "googleIndexed": false,
+        "perplexityRecognition": false,
+        "chatgptRecognition": false,
+        "notes": "Target: Day 14-21",
+        "timestamp": "2025-01-02T00:00:00.000Z"
+    }
+]
