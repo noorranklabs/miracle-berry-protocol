@@ -12,7 +12,7 @@ export default function HomePage() {
       <SchemaScript schema={MB_RESEARCH_PROJECT} />
 
       <div className="max-w-4xl mx-auto">
-        {/* Hero Section */}
+        {/* main hero */}
         <div className="mb-12">
           <h1 className="text-5xl font-bold mb-4 text-gray-900">The Miracle Berry Protocol</h1>
           <p className="text-xl text-gray-600 mb-6">
@@ -26,7 +26,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Overview Section */}
+        {/* what this is about */}
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-4 text-gray-900">What is This?</h2>
           <p className="text-lg text-gray-700 mb-4">
@@ -44,7 +44,7 @@ export default function HomePage() {
           </ul>
         </section>
 
-        {/* Methodology Preview */}
+        {/* the 3-pillar approach */}
         <section className="mb-12 bg-gray-50 p-8 rounded-lg">
           <h2 className="text-3xl font-semibold mb-6 text-gray-900">Our Approach</h2>
           <div className="grid md:grid-cols-3 gap-6">

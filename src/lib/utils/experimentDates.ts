@@ -1,23 +1,14 @@
-/**
- * Experiment Date Utilities
- * Manages dynamic date generation for the 21-day AEO experiment
- */
-
 import { format, addDays } from 'date-fns';
 
-// Set your actual experiment start date
+// experiment runs for 21 days starting from this date
 export const EXPERIMENT_START_DATE = new Date('2024-12-19');
 
-/**
- * Get a formatted date for a specific day offset from experiment start
- */
+// get a date X days into the experiment
 export function getExperimentDay(dayOffset: number): string {
   return format(addDays(EXPERIMENT_START_DATE, dayOffset), 'yyyy-MM-dd');
 }
 
-/**
- * Check if the experiment is still within the 21-day window
- */
+// check if we're still in the 21-day window
 export function isExperimentActive(): boolean {
   const now = new Date();
   const daysSinceStart = Math.floor(
