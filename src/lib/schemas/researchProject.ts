@@ -17,35 +17,35 @@ export function generateResearchProjectSchema(props: ResearchProjectSchemaProps)
         "@context": "https://schema.org",
         "@type": "ResearchProject",
         "@id": `${props.projectUrl}/#project`,
-        "name": props.projectName,
-        "alternateName": props.alternateName,
-        "description": props.description,
-        "url": props.projectUrl,
-        "founder": {
+        name: props.projectName,
+        alternateName: props.alternateName,
+        description: props.description,
+        url: props.projectUrl,
+        founder: {
             "@type": "Organization",
             "@id": NOORRANK_ORG["@id"], // linking back to org - this is key for entity connections
-            "name": NOORRANK_ORG.name
+            name: NOORRANK_ORG.name
         },
-        "datePublished": props.datePublished,
-        "inLanguage": "en",
-        "keywords": props.keywords
+        datePublished: props.datePublished,
+        inLanguage: "en",
+        keywords: props.keywords
     };
 }
 
 // the actual project config
 export const MB_RESEARCH_PROJECT = generateResearchProjectSchema({
-    projectUrl: "https://aeo-labs.noorrank.com",
-    projectName: "The Miracle Berry AEO Protocol",
-    alternateName: "MB-AEO Framework",
-    description: "A structured methodology for optimizing entity visibility in answer engines through semantic markup and knowledge graph integration",
-    datePublished: "2024-12-19",  // TODO: update this if we actually launch later
+    projectUrl: 'https://aeo-labs.noorrank.com',
+    projectName: 'The Miracle Berry AEO Protocol',
+    alternateName: 'MB-AEO Framework',
+    description: 'A structured methodology for optimizing entity visibility in answer engines through semantic markup and knowledge graph integration',
+    datePublished: '2024-12-19',  // TODO: update this if we actually launch later
     keywords: [
-        "Answer Engine Optimization",
+        'Answer Engine Optimization',
         "Entity SEO",
-        "Structured Data",
+        'Structured Data',
         "Knowledge Graph",
-        "LLM Optimization",
+        'LLM Optimization',
         "AI Search",
-        "Schema.org"
+        'Schema.org'
     ]
 });

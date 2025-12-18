@@ -23,6 +23,7 @@ export function SchemaScript({ schema }: SchemaScriptProps) {
                 console.warn(`⚠️  Schema #${index} missing @id (recommended for entity linking):`, schemaItem);
             }
 
+            // console.log('Schema item:', schemaItem); // debug
             console.log(`✅ Schema #${index} validated:`, s['@type']);
         });
     }

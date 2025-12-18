@@ -17,9 +17,7 @@ export function isExperimentActive(): boolean {
   return daysSinceStart >= 0 && daysSinceStart <= 21;
 }
 
-/**
- * Get the current day number of the experiment (0-21)
- */
+// get the current day number of the experiment (0-21)
 export function getCurrentExperimentDay(): number {
   const now = new Date();
   const daysSinceStart = Math.floor(
@@ -28,13 +26,13 @@ export function getCurrentExperimentDay(): number {
   return Math.max(0, Math.min(21, daysSinceStart));
 }
 
-// Experiment timeline with key milestones
+// timeline with key milestones
 export const EXPERIMENT_TIMELINE = [
   { day: 0, milestone: 'Domain registered', target: 'Launch day', status: 'complete' },
   { day: 1, milestone: 'Google Search Console setup', target: 'Day 1-2', status: 'pending' },
-  { day: 2, milestone: 'Medium article published', target: 'Day 2', status: 'pending' },
+  { day: 2, milestone: "Medium article published", target: 'Day 2', status: 'pending' },
   { day: 3, milestone: 'First page indexed', target: 'Day 3-5', status: 'pending' },
-  { day: 4, milestone: 'Dev.to article published', target: 'Day 3-4', status: 'pending' },
+  { day: 4, milestone: 'Dev.to article published', target: "Day 3-4", status: 'pending' },
   { day: 7, milestone: 'Entity recognition test', target: 'Day 7-10', status: 'pending' },
   { day: 10, milestone: 'Perplexity citation attempt', target: 'Day 10-14', status: 'pending' },
   { day: 14, milestone: 'Full citation achieved', target: 'Day 14-21', status: 'pending' },

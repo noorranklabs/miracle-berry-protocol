@@ -21,27 +21,27 @@ export function generateOrganizationSchema(props: OrganizationSchemaProps) {
         "@context": "https://schema.org",
         "@type": "Organization",
         "@id": `${props.url}/#organization`, // this ID is important for entity linking
-        "name": props.name,
-        "url": props.url,
-        "logo": {
+        name: props.name,
+        url: props.url,
+        logo: {
             "@type": "ImageObject",
-            "url": props.logoUrl,
-            "width": 250,
-            "height": 60
+            url: props.logoUrl,
+            width: 250,
+            height: 60
         },
-        ...(props.description && { "description": props.description }),
-        ...(props.sameAs && { "sameAs": props.sameAs })
+        ...(props.description && { description: props.description }),
+        ...(props.sameAs && { sameAs: props.sameAs })
     };
 }
 
 // our org entity - reused across all pages
 export const NOORRANK_ORG = generateOrganizationSchema({
-    name: "NoorRank",
-    url: "https://noorrank.com",
-    logoUrl: "https://noorrank.com/logo.png",
+    name: 'NoorRank',
+    url: 'https://noorrank.com',
+    logoUrl: 'https://noorrank.com/logo.png',
     sameAs: [
-        "https://github.com/noorrank",
-        "https://www.linkedin.com/company/noorrank"
+        'https://github.com/noorrank',
+        'https://www.linkedin.com/company/noorrank'
     ],
-    description: "Answer Engine Optimization infrastructure for agencies"
+    description: 'Answer Engine Optimization infrastructure for agencies'
 });

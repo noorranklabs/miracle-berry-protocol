@@ -21,12 +21,12 @@ async function ensureDataDir() {
         const initialData = [
             {
                 date: new Date().toISOString().split('T')[0],
-                metric: 'Project launched',
+                metric: "Project launched",
                 status: 'complete',
                 googleIndexed: false,
                 perplexityRecognition: false,
                 chatgptRecognition: false,
-                notes: 'Initial deployment to Vercel',
+                notes: "Initial deployment to Vercel",
                 timestamp: new Date().toISOString()
             }
         ];
@@ -67,6 +67,8 @@ export async function POST(request: Request) {
         });
 
         await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2));
+
+        // console.log('Added metric:', newMetric);
         return NextResponse.json({ success: true, data: newMetric });
     } catch (error) {
         console.error('Error adding metric:', error);
@@ -84,16 +86,16 @@ export async function PATCH(request: Request) {
         const update = await request.json();
 
         const data = JSON.parse(await fs.readFile(DATA_FILE, 'utf-8'));
-        const index = data.findIndex((m: any) => m.date === update.date && m.metric === update.metric);
+        const idx = data.findIndex((m: any) => m.date === update.date && m.metric === update.metric);
 
-        if (index === -1) {
-            return NextResponse.json({ error: 'Metric not found' }, { status: 404 });
+        if (idx === -1) {
+            return NextResponse.json({ error: "Metric not found" }, { status: 404 });
         }
 
-        data[index] = { ...data[index], ...update, updatedAt: new Date().toISOString() };
+        data[idx] = { ...data[idx], ...update, updatedAt: new Date().toISOString() };
         await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2));
 
-        return NextResponse.json({ success: true, data: data[index] });
+        return NextResponse.json({ success: true, data: data[idx] });
     } catch (error) {
         console.error('Error updating metric:', error);
         return NextResponse.json(
