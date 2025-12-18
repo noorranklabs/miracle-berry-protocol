@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SchemaScript } from "@/components/SchemaScript";
 import { NOORRANK_ORG } from "@/lib/schemas/organization";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/theme-toggle";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,37 +61,49 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="antialiased" suppressHydrationWarning>
       <head>
         {/* Global Organization Schema - appears on every page */}
         <SchemaScript schema={NOORRANK_ORG} />
       </head>
-      <body className={inter.className}>
-        <nav className="border-b bg-white sticky top-0 z-50 shadow-sm">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <a href="/" className="font-bold text-lg text-gray-900">MB-AEO Protocol</a>
+      <body className={`${inter.className} min-h-screen bg-background text-foreground flex flex-col`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <nav className="border-b border-border bg-surface/80 backdrop-blur-md sticky top-0 z-50">
+            <div className="container mx-auto px-4 py-4">
+              <div className="flex items-center justify-between">
+                <a href="/" className="font-bold text-lg tracking-tight hover:text-primary/90 transition-colors">MB-AEO Protocol</a>
 
-              <div className="flex flex-wrap gap-4 sm:gap-6">
-                <a href="/" className="text-sm font-medium hover:text-blue-600 transition">Home</a>
-                <a href="/documentation" className="text-sm font-medium hover:text-blue-600 transition">Docs</a>
-                <a href="/progress" className="text-sm font-medium hover:text-blue-600 transition">Progress</a>
-                <a href="/methodology" className="text-sm font-medium hover:text-blue-600 transition">Methodology</a>
+                <div className="flex items-center gap-6">
+                  <div className="flex flex-wrap gap-6">
+                    <a href="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                    <a href="/documentation" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Docs</a>
+                    <a href="/progress" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Progress</a>
+                    <a href="/methodology" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Methodology</a>
+                  </div>
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
+          </nav>
 
-        <main className="container mx-auto px-4 py-8 min-h-screen">
-          {children}
-        </main>
+          <main className="container mx-auto px-4 py-12 flex-grow">
+            {children}
+          </main>
 
-        <footer className="border-t mt-16 py-8 text-center text-sm text-gray-600">
-          <p>An open research project by <a href="https://noorrank.com" className="underline hover:text-gray-900">NoorRank</a></p>
-          <p className="mt-2 text-xs text-gray-500">
-            © {new Date().getFullYear()} NoorRank. MIT License.
-          </p>
-        </footer>
+          <footer className="border-t border-border mt-auto bg-surface py-12 text-center text-sm text-muted-foreground">
+            <div className="container mx-auto px-4">
+              <p>An open research project by <a href="https://noorrank.com" className="font-medium text-foreground underline decoration-border hover:decoration-foreground transition-all">NoorRank</a></p>
+              <p className="mt-4 text-xs">
+                © {new Date().getFullYear()} NoorRank. Licensed under MIT.
+              </p>
+            </div>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );
