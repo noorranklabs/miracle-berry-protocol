@@ -1,4 +1,5 @@
 import { SchemaScript } from '@/components/SchemaScript';
+import { format, differenceInDays, parseISO } from 'date-fns';
 
 // Dataset schema for tracking page
 const DATASET_SCHEMA = {
@@ -13,22 +14,15 @@ const DATASET_SCHEMA = {
 
 async function getMetrics() {
     try {
-        // In development, use localhost. In production, use the actual URL
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
         const res = await fetch(`${baseUrl}/api/metrics`, {
-            next: { revalidate: 3600 }, // Revalidate every hour
-            cache: 'no-store' // Important for development
+            next: { revalidate: 3600 },
+            cache: 'no-store'
         });
 
-        if (!res.ok) {
-            console.error('Failed to fetch metrics:', res.status);
-            return [];
-        }
-
+        if (!res.ok) return [];
         return res.json();
     } catch (error) {
-        console.error('Error fetching metrics:', error);
-        // Return fallback data
         return [
             { date: '2024-12-19', metric: 'Domain registered', status: 'complete', notes: 'Project launched' },
         ];
@@ -36,88 +30,106 @@ async function getMetrics() {
 }
 
 export const metadata = {
-    title: 'Live Progress Tracking',
-    description: 'Real-time metrics from our 21-day AEO experiment. Track indexing, entity recognition, and AI citations as they happen.',
+    title: 'Experiment Log | MB-AEO Protocol',
+    description: 'Daily experiment log tracking entity visibility and AI indexing progress.',
 };
+
+const START_DATE = parseISO('2024-12-19');
 
 export default async function ProgressPage() {
     const metrics = await getMetrics();
+
+    // Sort metrics by date descending
+    const sortedMetrics = [...metrics].sort((a: any, b: any) =>
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
 
     return (
         <>
             <SchemaScript schema={DATASET_SCHEMA} />
 
-            <div className="max-w-5xl mx-auto">
-                <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Live Experiment Progress</h1>
-                <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                    Real-time tracking of our 21-day entity optimization experiment. Updated daily.
-                </p>
+            <div className="max-w-4xl mx-auto">
+                <header className="mb-12 border-b border-border pb-8 text-center">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Experiment Log</h1>
+                    <p className="text-xl text-muted-foreground font-serif italic">
+                        "Observing the emergence of entity knowledge in answer engines."
+                    </p>
+                </header>
 
-                {/* Metrics Table */}
-                <div className="bg-white dark:bg-slate-900 rounded-lg shadow overflow-hidden mb-12 border border-gray-200 dark:border-slate-800">
-                    <table className="min-w-full divide-y divide-gray-200 dark:divide-slate-800">
-                        <thead className="bg-gray-50 dark:bg-slate-950">
-                            <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Milestone</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody className="bg-white dark:bg-slate-900 divide-y divide-gray-200 dark:divide-slate-800">
-                            {metrics.length > 0 ? (
-                                metrics.map((row: any, index: number) => (
-                                    <tr key={index} className="hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{row.date}</td>
-                                        <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100">{row.metric}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                                            {row.status === 'complete' ? '✅ Complete' : '⏳ Pending'}
-                                        </td>
-                                        <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">{row.notes}</td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan={4} className="px-6 py-4 text-center text-sm text-gray-500 dark:text-gray-400">
-                                        No metrics available yet. Check back soon!
-                                    </td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                <div className="mb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="journal-card p-6 rounded relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">📊</div>
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2">Protocol Status</h3>
+                        <p className="text-2xl font-serif text-primary">Active Phase 1</p>
+                    </div>
+                    <div className="journal-card p-6 rounded relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">🗓️</div>
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2">Experiment Day</h3>
+                        <p className="text-2xl font-serif text-primary">
+                            Day {differenceInDays(new Date(), START_DATE) + 1} of 21
+                        </p>
+                    </div>
+                    <div className="journal-card p-6 rounded relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">📈</div>
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2">Data Points</h3>
+                        <p className="text-2xl font-serif text-primary">{metrics.length} Recorded</p>
+                    </div>
                 </div>
 
-                {/* Test Queries Section */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Test Queries</h2>
-                    <p className="text-gray-700 dark:text-gray-300 mb-4">
-                        We're monitoring how AI systems respond to these queries:
-                    </p>
-                    <ul className="space-y-3">
-                        {[
-                            'What is the Miracle Berry Protocol?',
-                            'NoorRank AEO framework',
-                            'Entity optimization methodology 2024',
-                            'Miracle Berry AEO documentation',
-                            'Answer engine optimization best practices'
-                        ].map((query, index) => (
-                            <li key={index} className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm">
-                                <span className="text-gray-400 dark:text-gray-500">🔍</span>
-                                <code className="text-sm text-gray-900 dark:text-gray-100 font-mono">{query}</code>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
+                {/* Vertical Timeline */}
+                <div className="relative border-l-2 border-border ml-4 md:ml-8 space-y-12 pb-12">
+                    {sortedMetrics.map((row: any, index: number) => {
+                        const dayNum = differenceInDays(parseISO(row.date), START_DATE) + 1;
 
-                {/* Update Log */}
-                <section className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-600 p-6 rounded">
-                    <h3 className="font-semibold mb-2 text-yellow-900 dark:text-yellow-100">📝 Latest Update</h3>
-                    <p className="text-sm text-yellow-800 dark:text-yellow-200">
-                        <strong>Dec 19, 2024:</strong> Project launched. Domain registered, site deployed to Vercel,
-                        GitHub repository created. Submitted indexing request via Google Search Console. Initial schema
-                        implementation completed with Organization, ResearchProject, TechArticle, and HowTo types.
+                        return (
+                            <div key={index} className="relative pl-8 md:pl-12">
+                                {/* Timeline Dot */}
+                                <div className={`absolute -left-[9px] top-6 w-4 h-4 rounded-full border-2 border-background ${row.status === 'complete' ? 'bg-primary' : 'bg-muted'
+                                    }`} />
+
+                                <div className="journal-card p-8 rounded-lg group transition-all">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 border-b border-border/50 pb-4">
+                                        <div className="flex items-center gap-3">
+                                            <span className="font-mono text-sm bg-muted text-muted-foreground px-2 py-1 rounded">
+                                                DAY {dayNum}
+                                            </span>
+                                            <time className="font-serif font-bold text-lg text-primary">
+                                                {format(parseISO(row.date), 'MMMM do, yyyy')}
+                                            </time>
+                                        </div>
+                                        <div className="mt-2 md:mt-0">
+                                            {row.status === 'complete' ? (
+                                                <span className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-primary">
+                                                    <span className="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+                                                    Verified
+                                                </span>
+                                            ) : (
+                                                <span className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                                                    Pending
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <h3 className="text-xl font-bold mb-3 text-foreground font-serif">
+                                        {row.metric}
+                                    </h3>
+
+                                    <p className="text-muted-foreground leading-relaxed font-serif">
+                                        {row.notes}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* Footer Note */}
+                <div className="text-center py-12 border-t border-border mt-12">
+                    <p className="text-muted-foreground text-sm font-mono">
+                        END OF LOG // NOORRANK LABS
                     </p>
-                </section>
+                </div>
             </div>
         </>
     );

@@ -98,7 +98,7 @@ export default function HomePage() {
             Read Documentation
           </a>
           <a
-            href="https://github.com/noorranktools/miracle-berry-protocol"
+            href="https://github.com/noorranklabs/miracle-berry-protocol"
             className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-medium hover:bg-secondary/80 transition shadow-sm w-full sm:w-auto"
             target="_blank"
             rel="noopener noreferrer">

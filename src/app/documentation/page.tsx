@@ -53,8 +53,8 @@ export default function DocumentationPage() {
   "@id": "https://noorrank.com/#organization",
   "name": "NoorRank",
   "sameAs": [
-    "https://github.com/noorrank",
-    "https://linkedin.com/company/noorrank"
+    "https://www.github.com/noorranklabs/",
+    "https://www.linkedin.com/company/noorrank/"
   ]
 }
 
@@ -115,7 +115,7 @@ export default function DocumentationPage() {
                     The complete implementation is open-source and available on GitHub:
                 </p>
                 <a
-                    href="https://github.com/noorrank/miracle-berry-protocol"
+                    href="https://github.com/noorranklabs/miracle-berry-protocol"
                     className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition"
                     target="_blank"
                     rel="noopener noreferrer">

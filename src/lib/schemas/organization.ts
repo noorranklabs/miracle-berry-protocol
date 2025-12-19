@@ -40,8 +40,8 @@ export const NOORRANK_ORG = generateOrganizationSchema({
     url: 'https://noorrank.com',
     logoUrl: 'https://noorrank.com/logo.png',
     sameAs: [
-        'https://github.com/noorrank',
-        'https://www.linkedin.com/company/noorrank'
+        'https://github.com/noorranklabs',
+        'https://www.linkedin.com/company/noorrank/'
     ],
     description: 'Answer Engine Optimization infrastructure for agencies'
 });

@@ -41,8 +41,8 @@ export const NOORRANK_ORG = generateOrganizationSchema({
   url: "https://noorrank.com",
   logoUrl: "https://noorrank.com/logo.png",
   sameAs: [
-    "https://github.com/noorrank",
-    "https://www.linkedin.com/company/noorrank"
+    "https://github.com/noorranklabs",
+    "https://www.linkedin.com/company/noorrank/"
   ]
 });
 ```
@@ -67,7 +67,7 @@ export const NOORRANK_ORG = generateOrganizationSchema({
 
 ```bash
 # Clone the repository
-git clone https://github.com/noorrank/miracle-berry-protocol.git
+git clone https://github.com/noorranklabs/miracle-berry-protocol.git
 cd miracle-berry-protocol
 
 # Install dependencies
@@ -218,8 +218,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## 💬 Contact
 
 **NoorRank**
-- GitHub: [@noorrank](https://github.com/noorrank)
-- LinkedIn: [company/noorrank](https://linkedin.com/company/noorrank)
+- GitHub: [@noorrank](https://github.com/noorranklabs)
+- LinkedIn: [company/noorrank](https://linkedin.com/company/noorrank/)
 
 ---
 

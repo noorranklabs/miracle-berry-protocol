@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { SchemaScript } from "@/components/SchemaScript";
 import { NOORRANK_ORG } from "@/lib/schemas/organization";
@@ -7,7 +7,12 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const libre = Libre_Baskerville({
+  weight: ['400', '700'],
+  subsets: ["latin"],
+  variable: '--font-libre'
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aeo-labs.noorrank.com'),
@@ -66,7 +71,7 @@ export default function RootLayout({
         {/* Global Organization Schema - appears on every page */}
         <SchemaScript schema={NOORRANK_ORG} />
       </head>
-      <body className={`${inter.className} min-h-screen bg-background text-foreground flex flex-col`}>
+      <body className={`${inter.variable} ${libre.variable} font-sans min-h-screen bg-stone-50 text-stone-900 flex flex-col`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
