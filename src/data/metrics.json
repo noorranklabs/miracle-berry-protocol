@@ -20,14 +20,14 @@
         "timestamp": "2024-12-19T00:30:00.000Z"
     },
     {
-        "date": "2024-12-20",
+        "date": "2024-12-19",
         "metric": "Google Search Console setup",
         "status": "pending",
         "googleIndexed": false,
         "perplexityRecognition": false,
         "chatgptRecognition": false,
         "notes": "Indexing request submitted",
-        "timestamp": "2024-12-20T00:00:00.000Z"
+        "timestamp": "2024-12-19T00:00:00.000Z"
     },
     {
         "date": "2024-12-21",
