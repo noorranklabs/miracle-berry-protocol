@@ -7,10 +7,10 @@
   --primary-foreground: #f8fafc;
   /* Slate 50 */
 
-  --secondary: #334155;
-  /* Slate 700 */
-  --secondary-foreground: #f1f5f9;
-  /* Slate 100 */
+  --secondary: #e2e8f0;
+  /* Slate 200 - lighter for bg */
+  --secondary-foreground: #0f172a;
+  /* Slate 900 - dark for text */
 
   --accent: #0284c7;
   /* Sky 600 */
@@ -24,10 +24,10 @@
   --surface: #ffffff;
   --surface-foreground: #0f172a;
 
-  --muted: #64748b;
-  /* Slate 500 */
-  --muted-foreground: #94a3b8;
-  /* Slate 400 */
+  --muted: #f1f5f9;
+  /* Slate 100 - lighter for bg */
+  --muted-foreground: #475569;
+  /* Slate 600 - darker for text readability */
 
   --border: #e2e8f0;
   /* Slate 200 */
@@ -60,9 +60,6 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
 .dark {
