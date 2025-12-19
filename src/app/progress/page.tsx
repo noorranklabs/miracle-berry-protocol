@@ -48,37 +48,37 @@ export default async function ProgressPage() {
             <SchemaScript schema={DATASET_SCHEMA} />
 
             <div className="max-w-5xl mx-auto">
-                <h1 className="text-4xl font-bold mb-4 text-foreground">Live Experiment Progress</h1>
-                <p className="text-lg text-muted-foreground mb-8">
+                <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Live Experiment Progress</h1>
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
                     Real-time tracking of our 21-day entity optimization experiment. Updated daily.
                 </p>
 
                 {/* Metrics Table */}
-                <div className="bg-surface rounded-lg shadow overflow-hidden mb-12 border border-border">
-                    <table className="min-w-full divide-y divide-border">
-                        <thead className="bg-background">
+                <div className="bg-white dark:bg-slate-900 rounded-lg shadow overflow-hidden mb-12 border border-gray-200 dark:border-slate-800">
+                    <table className="min-w-full divide-y divide-gray-200 dark:divide-slate-800">
+                        <thead className="bg-gray-50 dark:bg-slate-950">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Date</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Milestone</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Status</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Notes</th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Milestone</th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Notes</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-surface divide-y divide-border">
+                        <tbody className="bg-white dark:bg-slate-900 divide-y divide-gray-200 dark:divide-slate-800">
                             {metrics.length > 0 ? (
                                 metrics.map((row: any, index: number) => (
-                                    <tr key={index} className="hover:bg-background/50 transition-colors">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground">{row.date}</td>
-                                        <td className="px-6 py-4 text-sm font-medium text-foreground">{row.metric}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground">
+                                    <tr key={index} className="hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{row.date}</td>
+                                        <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100">{row.metric}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
                                             {row.status === 'complete' ? '✅ Complete' : '⏳ Pending'}
                                         </td>
-                                        <td className="px-6 py-4 text-sm text-muted-foreground">{row.notes}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">{row.notes}</td>
                                     </tr>
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan={4} className="px-6 py-4 text-center text-sm text-muted-foreground">
+                                    <td colSpan={4} className="px-6 py-4 text-center text-sm text-gray-500 dark:text-gray-400">
                                         No metrics available yet. Check back soon!
                                     </td>
                                 </tr>
@@ -89,8 +89,8 @@ export default async function ProgressPage() {
 
                 {/* Test Queries Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-semibold mb-4 text-foreground">Test Queries</h2>
-                    <p className="text-foreground mb-4">
+                    <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Test Queries</h2>
+                    <p className="text-gray-700 dark:text-gray-300 mb-4">
                         We're monitoring how AI systems respond to these queries:
                     </p>
                     <ul className="space-y-3">
@@ -101,9 +101,9 @@ export default async function ProgressPage() {
                             'Miracle Berry AEO documentation',
                             'Answer engine optimization best practices'
                         ].map((query, index) => (
-                            <li key={index} className="flex items-center gap-3 p-4 bg-surface rounded-lg border border-border shadow-sm">
-                                <span className="text-muted-foreground">🔍</span>
-                                <code className="text-sm text-foreground font-mono">{query}</code>
+                            <li key={index} className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm">
+                                <span className="text-gray-400 dark:text-gray-500">🔍</span>
+                                <code className="text-sm text-gray-900 dark:text-gray-100 font-mono">{query}</code>
                             </li>
                         ))}
                     </ul>
