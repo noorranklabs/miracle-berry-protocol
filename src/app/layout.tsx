@@ -71,41 +71,65 @@ export default function RootLayout({
         {/* Global Organization Schema - appears on every page */}
         <SchemaScript schema={NOORRANK_ORG} />
       </head>
-      <body className={`${inter.variable} ${libre.variable} font-sans min-h-screen bg-stone-50 text-stone-900 flex flex-col`}>
+      <body className={`${inter.variable} ${libre.variable} font-sans min-h-screen bg-background text-foreground flex flex-col`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <nav className="border-b border-border bg-surface/80 backdrop-blur-md sticky top-0 z-50">
-            <div className="container mx-auto px-4 py-4">
+          <nav className="glass border-b border-border sticky top-0 z-50">
+            <div className="container mx-auto px-6 py-4">
               <div className="flex items-center justify-between">
-                <a href="/" className="font-bold text-lg tracking-tight hover:text-primary/90 transition-colors">MB-AEO Protocol</a>
+                <a href="/" className="font-serif font-bold text-xl tracking-tight text-primary hover:text-primary/80 transition-all flex items-center gap-2">
+                  <span className="bg-primary text-primary-foreground w-8 h-8 flex items-center justify-center rounded-md text-sm font-sans">MB</span>
+                  MB-AEO Protocol
+                </a>
 
-                <div className="flex items-center gap-6">
-                  <div className="flex flex-wrap gap-6">
-                    <a href="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Home</a>
-                    <a href="/documentation" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Docs</a>
-                    <a href="/progress" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Progress</a>
-                    <a href="/methodology" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Methodology</a>
+                <div className="flex items-center gap-8">
+                  <div className="hidden md:flex items-center gap-8">
+                    {[
+                      { name: 'Home', href: '/' },
+                      { name: 'Docs', href: '/documentation' },
+                      { name: 'Progress', href: '/progress' },
+                      { name: 'Methodology', href: '/methodology' }
+                    ].map((link) => (
+                      <a 
+                        key={link.name}
+                        href={link.href} 
+                        className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    ))}
                   </div>
+                  <div className="h-4 w-px bg-border hidden md:block" />
                   <ThemeToggle />
                 </div>
               </div>
             </div>
           </nav>
 
-          <main className="container mx-auto px-4 py-12 flex-grow">
+          <main className="container mx-auto px-6 py-16 flex-grow">
             {children}
           </main>
 
-          <footer className="border-t border-border mt-auto bg-surface py-12 text-center text-sm text-muted-foreground">
-            <div className="container mx-auto px-4">
-              <p>An open research project by <a href="https://noorrank.com" className="font-medium text-foreground underline decoration-border hover:decoration-foreground transition-all">NoorRank</a></p>
-              <p className="mt-4 text-xs">
-                © {new Date().getFullYear()} NoorRank. Licensed under MIT.
-              </p>
+          <footer className="border-t border-border mt-auto bg-muted/30 py-16 text-sm text-muted-foreground">
+            <div className="container mx-auto px-6">
+              <div className="grid md:grid-cols-2 gap-12 items-end">
+                <div className="space-y-4">
+                  <div className="font-serif font-bold text-lg text-foreground">NoorRank Labs</div>
+                  <p className="max-w-xs">
+                    Advancing the science of Answer Engine Optimization through transparent, entity-first experimentation.
+                  </p>
+                </div>
+                <div className="md:text-right space-y-4">
+                  <p>An open research project by <a href="https://noorrank.com" className="font-medium text-foreground hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4">NoorRank</a></p>
+                  <p className="text-xs opacity-70">
+                    © {new Date().getFullYear()} NoorRank. Licensed under MIT.
+                  </p>
+                </div>
+              </div>
             </div>
           </footer>
         </ThemeProvider>

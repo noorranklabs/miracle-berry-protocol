@@ -1,5 +1,8 @@
 import { SchemaScript } from '@/components/SchemaScript';
 import { MB_RESEARCH_PROJECT } from '@/lib/schemas/researchProject';
+import { differenceInDays, parseISO } from 'date-fns';
+
+const START_DATE = parseISO('2025-12-22');
 
 export const metadata = {
   title: 'Miracle Berry AEO Protocol',
@@ -7,58 +10,66 @@ export const metadata = {
 };
 
 export default function HomePage() {
+  const dayCount = Math.min(21, Math.max(1, differenceInDays(new Date(), START_DATE) + 1));
+
   return <>
     <SchemaScript schema={MB_RESEARCH_PROJECT} />
 
-    <div className="max-w-5xl mx-auto space-y-24">
+    <div className="max-w-5xl mx-auto space-y-32">
       {/* main hero */}
-      <section className="text-center py-12">
-        <div className="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-sm font-medium text-accent mb-6">
-          <span>Currently Active: Day 4 of 21</span>
+      <section className="text-center py-20 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-primary/5 to-transparent -z-10 blur-3xl opacity-50" />
+
+        <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-semibold text-primary mb-10 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
+          Currently Active: Day {dayCount} of 21
         </div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground tracking-tight">
+
+        <h1 className="text-6xl md:text-8xl font-bold mb-8 text-foreground tracking-tighter leading-[1.1]">
           The Miracle Berry <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">AEO Protocol</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">AEO Protocol</span>
         </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-          A transparent experiment in entity-first optimization for answer engines by NoorRank.
+
+        <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-serif italic">
+          A definitive, transparent experiment in "Entity-First" optimization for the next generation of Answer Engines.
         </p>
 
-        <div className="bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900 rounded-lg p-6 max-w-3xl mx-auto backdrop-blur-sm">
-          <p className="text-sm font-medium text-blue-900 dark:text-blue-300 flex gap-3 items-start text-left">
-            <span className="text-xl">🔬</span>
-            <span>
-              <strong>Research Disclaimer:</strong> This is a live experiment to demonstrate Answer Engine Optimization (AEO) methodologies. All tactics used comply with search engine guidelines.
+        <div className="bg-white/50 dark:bg-zinc-900/50 border border-border rounded-2xl p-8 max-w-3xl mx-auto backdrop-blur-md shadow-sm">
+          <p className="text-sm font-medium text-foreground flex gap-4 items-start text-left">
+            <span className="pt-1">
+              <strong className="text-primary font-bold">Research Intelligence:</strong> This live experiment demonstrates AEO methodologies that prioritize knowledge graph integration over legacy keyword signals.
             </span>
           </p>
         </div>
       </section>
 
       {/* what this is about */}
-      <section className="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 className="text-3xl font-bold mb-6 text-foreground">What is this Protocol?</h2>
-          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+      <section className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-foreground tracking-tight">Redefining Visibility</h2>
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
-              The Miracle Berry Protocol is a structured methodology for optimizing entity visibility in Large Language Models
-              and answer engines like Perplexity, ChatGPT, and Google SGE.
+              The Miracle Berry Protocol is more than a strategy; it's a structured methodology for optimizing entity authority in Large Language Models.
             </p>
             <p>
-              Unlike traditional SEO that targets keywords, AEO focuses on authority, structured knowledge, and entity disambiguation.
+              In an era dominated by Perplexity, ChatGPT, and Google SGE, traditional SEO is no longer sufficient. We focus on <span className="text-foreground font-semibold">disambiguation, semantic mapping, and corroborated trust.</span>
             </p>
           </div>
         </div>
-        <div className="bg-surface border border-border rounded-xl p-8 shadow-sm">
-          <h3 className="font-semibold text-foreground mb-4">Core Focus Areas</h3>
-          <ul className="space-y-3">
+        <div className="journal-card p-10 bg-zinc-50/50 dark:bg-zinc-900/10">
+          <h3 className="font-bold text-xl text-foreground mb-6 flex items-center gap-2">
+            <span className="h-1.5 w-8 bg-primary rounded-full" />
+            Core Focus Areas
+          </h3>
+          <ul className="grid gap-4">
             {[
-              "Entity recognition and disambiguation",
-              "Knowledge graph integration",
-              "Semantic relationship mapping",
-              "Authority signal construction"
+              "Entity Recognition & Disambiguation",
+              "Knowledge Graph Semantic Integration",
+              "Relationship Mapping (Schema Registry)",
+              "Digital Authority Signal Construction"
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">✓</span>
+              <li key={i} className="flex items-center gap-4 text-muted-foreground font-medium">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">✓</span>
                 {item}
               </li>
             ))}
@@ -67,21 +78,20 @@ export default function HomePage() {
       </section>
 
       {/* the 3-pillar approach */}
-      <section>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-foreground">Our Approach</h2>
-          <p className="text-muted-foreground">Three foundational pillars for answer engine visibility</p>
+      <section className="relative">
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-4xl font-bold text-foreground tracking-tight">The Three Pillars</h2>
+          <p className="text-muted-foreground text-lg italic font-serif">A foundational framework for Answer Engine visibility</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { icon: "📐", title: "Schema Architecture", desc: "Modular JSON-LD implementation with consistent entity references." },
-            { icon: "🔗", title: "Authority Signals", desc: "Legitimate backlinks from technical platforms constructing a clear digital footprint." },
-            { icon: "📊", title: "Measurement", desc: "21-day tracking of indexing, entity recognition, and AI citations." }
+            { title: "Architecture", desc: "Modular JSON-LD implementation with consistent, persistent entity references across the entire stack." },
+            { title: "Authority", desc: "Strategic digital footprint construction across technical platforms to corroborate entity validity." },
+            { title: "Measurement", desc: "Rigorous 21-day longitudinal tracking of indexing, citation frequency, and model recognition." }
           ].map((item, i) => (
-            <div key={i} className="bg-surface border border-border p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow hover:border-primary/20 group">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 ease-out inline-block">{item.icon}</div>
-              <h3 className="font-semibold mb-3 text-xl text-foreground">{item.title}</h3>
+            <div key={i} className="journal-card p-10 group bg-white dark:bg-zinc-950">
+              <h3 className="font-bold mb-4 text-2xl text-foreground">{item.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
             </div>
           ))}
@@ -89,26 +99,32 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="text-center py-12 bg-surface border border-border rounded-2xl">
-        <h2 className="text-2xl font-bold mb-8 text-foreground">Explore the Framework</h2>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="/documentation"
-            className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition shadow-sm w-full sm:w-auto">
-            Read Documentation
-          </a>
-          <a
-            href="https://github.com/noorranklabs/miracle-berry-protocol"
-            className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-medium hover:bg-secondary/80 transition shadow-sm w-full sm:w-auto"
-            target="_blank"
-            rel="noopener noreferrer">
-            View on GitHub
-          </a>
-          <a
-            href="/progress"
-            className="border border-border bg-background px-8 py-3 rounded-lg font-medium hover:bg-surface hover:text-foreground transition w-full sm:w-auto">
-            Track Live Progress
-          </a>
+      <section className="text-center py-24 bg-zinc-900 dark:bg-zinc-950 rounded-3xl relative overflow-hidden group border border-zinc-800 dark:border-zinc-800/50">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-accent/30 opacity-70" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.1),transparent_70%)]" />
+        <div className="relative z-10 px-8">
+          <h2 className="text-4xl font-bold mb-10 text-white tracking-tight">Explore the Protocol</h2>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <a
+              href="/documentation"
+              className="bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-lg w-full sm:w-auto text-lg">
+              Technical Docs
+            </a>
+            <a
+              href="/progress"
+              className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-md px-10 py-4 rounded-xl font-bold transition-all border border-white/20 w-full sm:w-auto text-lg">
+              Live Progress
+            </a>
+          </div>
+          <div className="mt-12">
+            <a
+              href="https://github.com/noorranklabs/miracle-berry-protocol"
+              className="text-white/60 dark:text-black/60 hover:text-white dark:hover:text-black transition-colors font-medium flex items-center justify-center gap-2"
+              target="_blank"
+              rel="noopener noreferrer">
+              View codebase on GitHub <span className="text-xl">→</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>

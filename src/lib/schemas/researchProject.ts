@@ -38,7 +38,7 @@ export const MB_RESEARCH_PROJECT = generateResearchProjectSchema({
     projectName: 'The Miracle Berry AEO Protocol',
     alternateName: 'MB-AEO Framework',
     description: 'A structured methodology for optimizing entity visibility in answer engines through semantic markup and knowledge graph integration',
-    datePublished: '2024-12-19',  // TODO: update this if we actually launch later
+    datePublished: '2025-12-22',
     keywords: [
         'Answer Engine Optimization',
         "Entity SEO",

@@ -154,7 +154,7 @@ curl https://aeo-labs.noorrank.com/api/metrics
 curl -X POST https://aeo-labs.noorrank.com/api/metrics \
   -H "Content-Type: application/json" \
   -d '{
-    "date": "2024-12-25",
+    "date": "2025-12-25",
     "metric": "Perplexity citation achieved",
     "status": "complete",
     "notes": "First citation in answer engine"
@@ -167,7 +167,7 @@ curl -X POST https://aeo-labs.noorrank.com/api/metrics \
 curl -X PATCH https://aeo-labs.noorrank.com/api/metrics \
   -H "Content-Type: application/json" \
   -d '{
-    "date": "2024-12-19",
+    "date": "2025-12-19",
     "metric": "Domain registered",
     "status": "complete"
   }'

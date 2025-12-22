@@ -8,7 +8,7 @@ const DATASET_SCHEMA = {
     "name": "Miracle Berry Protocol Experiment Metrics",
     "description": "Real-time tracking of indexing, entity recognition, and AI citation milestones",
     "url": "https://aeo-labs.noorrank.com/progress",
-    "temporalCoverage": "2024-12-19/2025-01-09",
+    "temporalCoverage": "2025-12-22/2026-01-12",
     "measurementTechnique": "Manual verification via Google Search Console, Perplexity AI, and ChatGPT queries"
 };
 
@@ -24,7 +24,7 @@ async function getMetrics() {
         return res.json();
     } catch (error) {
         return [
-            { date: '2024-12-19', metric: 'Domain registered', status: 'complete', notes: 'Project launched' },
+            { date: '2025-12-22', metric: 'Domain registered', status: 'complete', notes: 'Project launched' },
         ];
     }
 }
@@ -34,7 +34,7 @@ export const metadata = {
     description: 'Daily experiment log tracking entity visibility and AI indexing progress.',
 };
 
-const START_DATE = parseISO('2024-12-19');
+const START_DATE = parseISO('2025-12-22');
 
 export default async function ProgressPage() {
     const metrics = await getMetrics();
@@ -48,74 +48,76 @@ export default async function ProgressPage() {
         <>
             <SchemaScript schema={DATASET_SCHEMA} />
 
-            <div className="max-w-4xl mx-auto">
-                <header className="mb-12 border-b border-border pb-8 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Experiment Log</h1>
-                    <p className="text-xl text-muted-foreground font-serif italic">
-                        "Observing the emergence of entity knowledge in answer engines."
+            <div className="max-w-4xl mx-auto space-y-16">
+                <header className="border-b border-border pb-12 text-center space-y-4">
+                    <h1 className="text-5xl font-bold text-foreground tracking-tight">Experiment Log</h1>
+                    <p className="text-xl text-muted-foreground font-serif italic max-w-2xl mx-auto">
+                        "Longitudinal observation of entity propagation across distributed knowledge graphs."
                     </p>
+                    <div className="flex justify-center pt-4">
+                        <span className="bg-primary/10 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest border border-primary/20">
+                            Live Tracking Active
+                        </span>
+                    </div>
                 </header>
 
-                <div className="mb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="journal-card p-6 rounded relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">📊</div>
-                        <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2">Protocol Status</h3>
-                        <p className="text-2xl font-serif text-primary">Active Phase 1</p>
-                    </div>
-                    <div className="journal-card p-6 rounded relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">🗓️</div>
-                        <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2">Experiment Day</h3>
-                        <p className="text-2xl font-serif text-primary">
-                            Day {differenceInDays(new Date(), START_DATE) + 1} of 21
-                        </p>
-                    </div>
-                    <div className="journal-card p-6 rounded relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">📈</div>
-                        <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2">Data Points</h3>
-                        <p className="text-2xl font-serif text-primary">{metrics.length} Recorded</p>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {[
+                        { label: "Protocol Status", value: "Active Phase 1", color: "text-primary" },
+                        { label: "Experiment Day", value: `Day ${differenceInDays(new Date(), START_DATE) + 1} of 21`, color: "text-accent" },
+                        { label: "Captured Milestones", value: `${metrics.length} Recorded`, color: "text-indigo-400" }
+                    ].map((stat, i) => (
+                        <div key={i} className="journal-card p-8 group hover:border-primary/50 transition-all bg-white dark:bg-zinc-950">
+                            <div className="flex justify-between items-start mb-4">
+                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</span>
+                            </div>
+                            <p className={`text-2xl font-bold tracking-tight text-foreground`}>{stat.value}</p>
+                        </div>
+                    ))}
                 </div>
 
                 {/* Vertical Timeline */}
-                <div className="relative border-l-2 border-border ml-4 md:ml-8 space-y-12 pb-12">
+                <div className="relative space-y-12">
+                    <div className="absolute left-6 md:left-10 top-4 bottom-4 w-0.5 bg-zinc-200 dark:bg-zinc-800" />
+
                     {sortedMetrics.map((row: any, index: number) => {
                         const dayNum = differenceInDays(parseISO(row.date), START_DATE) + 1;
 
                         return (
-                            <div key={index} className="relative pl-8 md:pl-12">
+                            <div key={index} className="relative pl-16 md:pl-24 group">
                                 {/* Timeline Dot */}
-                                <div className={`absolute -left-[9px] top-6 w-4 h-4 rounded-full border-2 border-background ${row.status === 'complete' ? 'bg-primary' : 'bg-muted'
+                                <div className={`absolute left-[20px] md:left-[36px] top-6 w-3 h-3 rounded-full border-4 border-background z-10 transition-transform group-hover:scale-125 ${row.status === 'complete' ? 'bg-primary shadow-[0_0_0_4px_rgba(79,70,229,0.1)]' : 'bg-zinc-300 dark:bg-zinc-700'
                                     }`} />
 
-                                <div className="journal-card p-8 rounded-lg group transition-all">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 border-b border-border/50 pb-4">
-                                        <div className="flex items-center gap-3">
-                                            <span className="font-mono text-sm bg-muted text-muted-foreground px-2 py-1 rounded">
-                                                DAY {dayNum}
+                                <div className="journal-card p-8 bg-white dark:bg-zinc-950 group-hover:shadow-lg transition-all border-zinc-200 dark:border-zinc-800">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-zinc-100 dark:border-zinc-900 pb-6">
+                                        <div className="flex items-center gap-4">
+                                            <span className="font-mono text-[10px] font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-500 px-2 py-1 rounded border border-zinc-200 dark:border-zinc-800">
+                                                LOG {dayNum.toString().padStart(3, '0')}
                                             </span>
-                                            <time className="font-serif font-bold text-lg text-primary">
+                                            <time className="font-bold text-lg text-foreground">
                                                 {format(parseISO(row.date), 'MMMM do, yyyy')}
                                             </time>
                                         </div>
-                                        <div className="mt-2 md:mt-0">
+                                        <div className="flex items-center">
                                             {row.status === 'complete' ? (
-                                                <span className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-primary">
-                                                    <span className="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-                                                    Verified
+                                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mr-2 animate-pulse"></span>
+                                                    Verified Milestone
                                                 </span>
                                             ) : (
-                                                <span className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                                    Pending
+                                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-400 border border-zinc-200 dark:border-zinc-800">
+                                                    In Progress
                                                 </span>
                                             )}
                                         </div>
                                     </div>
 
-                                    <h3 className="text-xl font-bold mb-3 text-foreground font-serif">
+                                    <h3 className="text-2xl font-bold mb-4 text-foreground tracking-tight">
                                         {row.metric}
                                     </h3>
 
-                                    <p className="text-muted-foreground leading-relaxed font-serif">
+                                    <p className="text-muted-foreground text-lg leading-relaxed font-serif italic">
                                         {row.notes}
                                     </p>
                                 </div>
@@ -125,12 +127,14 @@ export default async function ProgressPage() {
                 </div>
 
                 {/* Footer Note */}
-                <div className="text-center py-12 border-t border-border mt-12">
-                    <p className="text-muted-foreground text-sm font-mono">
-                        END OF LOG // NOORRANK LABS
+                <div className="text-center py-20 opacity-30 group hover:opacity-100 transition-opacity">
+                    <div className="h-px w-24 bg-zinc-300 dark:bg-zinc-700 mx-auto mb-8" />
+                    <p className="text-xs font-mono tracking-[0.3em] uppercase">
+                        EOF // NOORRANK LABS EXPERIMENT LOG
                     </p>
                 </div>
             </div>
+
         </>
     );
 }
