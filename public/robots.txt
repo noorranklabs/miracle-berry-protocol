@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://aeo-labs.noorrank.com/sitemap.xml
+Sitemap: https://noorranklabs.com/sitemap.xml
 
 # Optimize for AI crawlers
 User-agent: GPTBot

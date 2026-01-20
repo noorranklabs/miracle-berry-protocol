@@ -21,7 +21,7 @@ Unlike traditional SEO that targets keyword rankings, AEO focuses on:
 
 ## 🎯 Live Demo
 
-**Website:** https://aeo-labs.noorrank.com
+**Website:** https://noorranklabs.com
 
 **Pages:**
 - **Homepage:** Research overview and methodology
@@ -146,13 +146,13 @@ src/
 ### Get Metrics
 
 ```bash
-curl https://aeo-labs.noorrank.com/api/metrics
+curl https://noorranklabs.com/api/metrics
 ```
 
 ### Add Metric
 
 ```bash
-curl -X POST https://aeo-labs.noorrank.com/api/metrics \
+curl -X POST https://noorranklabs.com/api/metrics \
   -H "Content-Type: application/json" \
   -d '{
     "date": "2025-12-25",
@@ -165,7 +165,7 @@ curl -X POST https://aeo-labs.noorrank.com/api/metrics \
 ### Update Metric
 
 ```bash
-curl -X PATCH https://aeo-labs.noorrank.com/api/metrics \
+curl -X PATCH https://noorranklabs.com/api/metrics \
   -H "Content-Type: application/json" \
   -d '{
     "date": "2025-12-19",
@@ -211,7 +211,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🔗 Links
 
-- **Website:** https://aeo-labs.noorrank.com
+- **Website:** https://noorranklabs.com
 - **NoorRank:** https://noorrank.com
 - **Medium:** [Building an AEO Lab](https://medium.com/@noorrank)
 - **Dev.to:** [Modular Schema Architecture](https://dev.to/noorrank)

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://aeo-labs.noorrank.com';
+    const baseUrl = 'https://noorranklabs.com';
 
     return [
         {

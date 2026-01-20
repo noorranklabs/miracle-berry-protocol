@@ -7,7 +7,7 @@ const DATASET_SCHEMA = {
     "@type": "Dataset",
     "name": "Miracle Berry Protocol Experiment Metrics",
     "description": "Real-time tracking of indexing, entity recognition, and AI citation milestones",
-    "url": "https://aeo-labs.noorrank.com/progress",
+    "url": "https://noorranklabs.com/progress",
     "temporalCoverage": "2026-01-20/2026-02-09",
     "measurementTechnique": "Manual verification via Google Search Console, Perplexity AI, and ChatGPT queries"
 };

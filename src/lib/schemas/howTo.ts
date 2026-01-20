@@ -35,29 +35,29 @@ export function generateHowToSchema(props: HowToSchemaProps) {
 
 // Implementation guide configuration
 export const IMPLEMENTATION_GUIDE = generateHowToSchema({
-    guideUrl: "https://aeo-labs.noorrank.com/documentation",
+    guideUrl: "https://noorranklabs.com/documentation",
     name: "How to Implement Entity-First AEO",
     description: "Step-by-step guide to structured data implementation for answer engine visibility",
     steps: [
         {
             name: "Define Core Entities",
             text: "Identify primary entities (Organization, Product, Service) and their relationships using schema.org types",
-            url: "https://aeo-labs.noorrank.com/documentation#step1"
+            url: "https://noorranklabs.com/documentation#step1"
         },
         {
             name: "Implement Modular Schema",
             text: "Deploy component-based schema architecture with consistent @id references across pages",
-            url: "https://aeo-labs.noorrank.com/documentation#step2"
+            url: "https://noorranklabs.com/documentation#step2"
         },
         {
             name: "Validate Structured Data",
             text: "Use Google Rich Results Test and Schema Markup Validator to ensure error-free implementation",
-            url: "https://aeo-labs.noorrank.com/documentation#step3"
+            url: "https://noorranklabs.com/documentation#step3"
         },
         {
             name: "Monitor Entity Recognition",
             text: "Track how AI systems cite and describe your entities over 14-21 day observation period",
-            url: "https://aeo-labs.noorrank.com/documentation#step4"
+            url: "https://noorranklabs.com/documentation#step4"
         }
     ]
 });
