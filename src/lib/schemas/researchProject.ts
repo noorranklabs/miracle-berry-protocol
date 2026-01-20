@@ -34,7 +34,7 @@ export function generateResearchProjectSchema(props: ResearchProjectSchemaProps)
 
 // the actual project config
 export const MB_RESEARCH_PROJECT = generateResearchProjectSchema({
-    projectUrl: 'https://noorranklabs.com',
+    projectUrl: 'https://www.noorranklabs.com',
     projectName: 'The Miracle Berry AEO Protocol',
     alternateName: 'MB-AEO Framework',
     description: 'A structured methodology for optimizing entity visibility in answer engines through semantic markup and knowledge graph integration',

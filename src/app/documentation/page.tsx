@@ -3,7 +3,7 @@ import { generateTechArticleSchema } from '@/lib/schemas/techArticle';
 import { IMPLEMENTATION_GUIDE } from '@/lib/schemas/howTo';
 
 const DOCS_SCHEMA = generateTechArticleSchema({
-    articleUrl: 'https://noorranklabs.com/documentation',
+    articleUrl: 'https://www.noorranklabs.com/documentation',
     headline: 'Miracle Berry Protocol: Technical Documentation',
     description: 'Complete implementation guide for entity-first optimization in LLM-powered answer engines',
     datePublished: '2026-01-20',

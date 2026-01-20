@@ -15,7 +15,7 @@ const libre = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://noorranklabs.com'),
+  metadataBase: new URL('https://www.noorranklabs.com'),
   title: {
     default: 'Miracle Berry AEO Protocol | NoorRank Labs',
     template: '%s | MB-AEO Protocol'
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://noorranklabs.com',
+    url: 'https://www.noorranklabs.com',
     siteName: 'Miracle Berry AEO Protocol',
     title: 'Miracle Berry AEO Protocol | NoorRank Labs',
     description: 'A transparent experiment in entity-first optimization for answer engines',
     images: [
       {
-        url: 'https://noorranklabs.com/og-image.png',
+        url: 'https://www.noorranklabs.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Miracle Berry AEO Protocol'
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Miracle Berry AEO Protocol',
     description: 'A transparent experiment in entity-first optimization',
-    images: ['https://noorranklabs.com/og-image.png']
+    images: ['https://www.noorranklabs.com/og-image.png']
   },
   robots: {
     index: true,
