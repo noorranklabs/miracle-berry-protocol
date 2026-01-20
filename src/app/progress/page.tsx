@@ -8,7 +8,7 @@ const DATASET_SCHEMA = {
     "name": "Miracle Berry Protocol Experiment Metrics",
     "description": "Real-time tracking of indexing, entity recognition, and AI citation milestones",
     "url": "https://aeo-labs.noorrank.com/progress",
-    "temporalCoverage": "2025-12-22/2026-01-12",
+    "temporalCoverage": "2026-01-20/2026-02-09",
     "measurementTechnique": "Manual verification via Google Search Console, Perplexity AI, and ChatGPT queries"
 };
 
@@ -24,7 +24,7 @@ async function getMetrics() {
         return res.json();
     } catch (error) {
         return [
-            { date: '2025-12-22', metric: 'Domain registered', status: 'complete', notes: 'Project launched' },
+            { date: '2026-01-20', metric: 'Domain registered', status: 'complete', notes: 'Project launched' },
         ];
     }
 }
@@ -34,7 +34,7 @@ export const metadata = {
     description: 'Daily experiment log tracking entity visibility and AI indexing progress.',
 };
 
-const START_DATE = parseISO('2025-12-22');
+const START_DATE = parseISO('2026-01-20');
 
 export default async function ProgressPage() {
     const metrics = await getMetrics();

@@ -1,7 +1,7 @@
 import { format, addDays } from 'date-fns';
 
 // experiment runs for 21 days starting from this date
-export const EXPERIMENT_START_DATE = new Date('2025-12-22');
+export const EXPERIMENT_START_DATE = new Date('2026-01-20');
 
 // get a date X days into the experiment
 export function getExperimentDay(dayOffset: number): string {

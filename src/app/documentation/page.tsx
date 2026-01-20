@@ -6,8 +6,8 @@ const DOCS_SCHEMA = generateTechArticleSchema({
     articleUrl: 'https://aeo-labs.noorrank.com/documentation',
     headline: 'Miracle Berry Protocol: Technical Documentation',
     description: 'Complete implementation guide for entity-first optimization in LLM-powered answer engines',
-    datePublished: '2025-12-22',
-    dateModified: '2025-12-22',
+    datePublished: '2026-01-20',
+    dateModified: '2026-01-20',
     dependencies: 'Next.js, Schema.org',
     proficiencyLevel: 'Intermediate'
 });
@@ -86,7 +86,6 @@ export default function DocumentationPage() {
                 </div>
 
                 <div className="flex items-start gap-4 p-4 bg-primary/5 rounded-xl border border-primary/10 text-sm text-primary/80 italic font-serif">
-                    <span className="text-lg">💡</span>
                     <p>The <code className="bg-primary/10 px-1.5 py-0.5 rounded font-mono text-primary">@id</code> reference creates bidirectional entity relationships that AI systems use to build high-confidence knowledge graphs.</p>
                 </div>
             </section>

@@ -2,7 +2,7 @@ import { SchemaScript } from '@/components/SchemaScript';
 import { MB_RESEARCH_PROJECT } from '@/lib/schemas/researchProject';
 import { differenceInDays, parseISO } from 'date-fns';
 
-const START_DATE = parseISO('2025-12-22');
+const START_DATE = parseISO('2026-01-20');
 
 export const metadata = {
   title: 'Miracle Berry AEO Protocol',

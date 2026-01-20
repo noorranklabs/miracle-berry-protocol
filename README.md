@@ -1,6 +1,7 @@
 # 🍇 Miracle Berry AEO Protocol
 
-> **A transparent experiment in entity-first optimization for answer engines**
+> **A transparent experiment in entity-first optimization for answer engines**  
+> **Status:** Day 1 • Domain launched January 20, 2026
 
 Built by [NoorRank](https://noorrank.com) as an open research project demonstrating Answer Engine Optimization (AEO) methodologies.
 
