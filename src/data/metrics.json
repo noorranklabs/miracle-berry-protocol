@@ -20,14 +20,14 @@
         "timestamp": "2026-01-20T11:48:00.000Z"
     },
     {
-        "date": "2026-01-21",
+        "date": "2026-01-20",
         "metric": "Google Search Console setup",
-        "status": "pending",
+        "status": "complete",
         "googleIndexed": false,
         "perplexityRecognition": false,
         "chatgptRecognition": false,
-        "notes": "Submit domain and request indexing",
-        "timestamp": "2026-01-21T00:00:00.000Z"
+        "notes": "Domain verified, sitemap submitted, all pages requested for indexing",
+        "timestamp": "2026-01-20T14:53:00.000Z"
     },
     {
         "date": "2026-01-22",
@@ -40,14 +40,14 @@
         "timestamp": "2026-01-22T00:00:00.000Z"
     },
     {
-        "date": "2026-01-25",
+        "date": "2026-01-20",
         "metric": "First page indexed",
-        "status": "pending",
-        "googleIndexed": false,
+        "status": "complete",
+        "googleIndexed": true,
         "perplexityRecognition": false,
         "chatgptRecognition": false,
-        "notes": "Target: 3-5 days from launch",
-        "timestamp": "2026-01-25T00:00:00.000Z"
+        "notes": "Homepage indexed on Day 1 - ahead of schedule!",
+        "timestamp": "2026-01-20T14:53:00.000Z"
     },
     {
         "date": "2026-01-27",

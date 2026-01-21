@@ -1,6 +1,7 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
+import { isAuthorizedForWrite } from '@/lib/utils/auth';
 
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const DATA_FILE = path.join(DATA_DIR, 'metrics.json');
@@ -34,20 +35,37 @@ async function ensureDataDir() {
     }
 }
 
-// fetch all metrics
+// fetch all metrics (public endpoint)
 export async function GET() {
     try {
         await ensureDataDir();
         const data = await fs.readFile(DATA_FILE, 'utf-8');
-        return NextResponse.json(JSON.parse(data));
+
+        // Add CORS headers for transparency
+        return NextResponse.json(JSON.parse(data), {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET',
+                'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120'
+            }
+        });
     } catch (error) {
         console.error('Error reading metrics:', error);
         return NextResponse.json([], { status: 200 }); // just return empty if something breaks
     }
 }
 
-// add new metric
-export async function POST(request: Request) {
+// add new metric (protected endpoint)
+export async function POST(request: NextRequest) {
+    // Check authorization
+    const authCheck = isAuthorizedForWrite(request);
+    if (!authCheck.authorized) {
+        return NextResponse.json(
+            { error: 'Unauthorized', reason: authCheck.reason },
+            { status: 401 }
+        );
+    }
+
     try {
         await ensureDataDir();
         const newMetric = await request.json();
@@ -60,16 +78,26 @@ export async function POST(request: Request) {
             );
         }
 
+        // Sanitize input to prevent injection attacks
+        const sanitizedMetric = {
+            date: String(newMetric.date).trim(),
+            metric: String(newMetric.metric).trim(),
+            status: newMetric.status ? String(newMetric.status).trim() : 'pending',
+            googleIndexed: Boolean(newMetric.googleIndexed),
+            perplexityRecognition: Boolean(newMetric.perplexityRecognition),
+            chatgptRecognition: Boolean(newMetric.chatgptRecognition),
+            notes: newMetric.notes ? String(newMetric.notes).trim() : ''
+        };
+
         const data = JSON.parse(await fs.readFile(DATA_FILE, 'utf-8'));
         data.push({
-            ...newMetric,
+            ...sanitizedMetric,
             timestamp: new Date().toISOString()
         });
 
         await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2));
 
-        // console.log('Added metric:', newMetric);
-        return NextResponse.json({ success: true, data: newMetric });
+        return NextResponse.json({ success: true, data: sanitizedMetric });
     } catch (error) {
         console.error('Error adding metric:', error);
         return NextResponse.json(
@@ -79,8 +107,17 @@ export async function POST(request: Request) {
     }
 }
 
-// update existing metric
-export async function PATCH(request: Request) {
+// update existing metric (protected endpoint)
+export async function PATCH(request: NextRequest) {
+    // Check authorization
+    const authCheck = isAuthorizedForWrite(request);
+    if (!authCheck.authorized) {
+        return NextResponse.json(
+            { error: 'Unauthorized', reason: authCheck.reason },
+            { status: 401 }
+        );
+    }
+
     try {
         await ensureDataDir();
         const update = await request.json();
@@ -103,4 +140,15 @@ export async function PATCH(request: Request) {
             { status: 500 }
         );
     }
+}
+
+// OPTIONS handler for CORS preflight
+export async function OPTIONS() {
+    return NextResponse.json({}, {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PATCH, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        }
+    });
 }

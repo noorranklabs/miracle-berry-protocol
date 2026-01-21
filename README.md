@@ -56,6 +56,9 @@ export const NOORRANK_ORG = generateOrganizationSchema({
 - **Dynamic Dates:** Automatic timeline generation for 21-day experiment
 - **Security Headers:** CSP, X-Frame-Options, and XSS protection
 - **AI Crawler Optimization:** robots.txt configured for GPTBot, Claude, Perplexity
+- **🔒 API Authentication:** Bearer token authentication for write operations
+- **⏱️ Rate Limiting:** 10 requests/minute per IP to prevent abuse
+- **👤 Admin Dashboard:** Password-protected interface at `/admin`
 
 ## 🚀 Getting Started
 
@@ -74,11 +77,16 @@ cd miracle-berry-protocol
 # Install dependencies
 npm install
 
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local and add your API key and admin password
+
 # Run development server
 npm run dev
 ```
 
 Visit `http://localhost:3000` to see the site.
+Visit `http://localhost:3000/admin` for the admin dashboard.
 
 ### Build for Production
 
@@ -141,38 +149,92 @@ src/
 - **Days 8-14:** Recognition (test AI systems)
 - **Days 15-21:** Citation (achieve full visibility)
 
+## 🔒 Security
+
+### Environment Setup
+
+**IMPORTANT:** Before deploying, create a `.env.local` file with the following variables:
+
+```bash
+# Required: API key for write operations
+ADMIN_API_KEY=your-strong-random-api-key-min-32-chars
+
+# Required: Password for admin dashboard
+ADMIN_PASSWORD=your-admin-dashboard-password
+
+# Optional: Comma-separated allowed IPs
+# ALLOWED_IPS=127.0.0.1,YOUR_IP
+
+# Required: Session secret for admin auth
+SESSION_SECRET=your-session-secret-min-32-chars
+```
+
+**Generate secure keys:**
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+### Admin Dashboard
+
+Access the password-protected admin dashboard at:
+- **Local:** `http://localhost:3000/admin`
+- **Production:** `https://www.noorranklabs.com/admin`
+
+Features:
+- ✅ Password authentication
+- ✅ Add/view metrics with visual editor
+- ✅ Real-time data updates
+- ✅ Mobile-responsive design
+
+### Security Features
+
+- **🔐 API Authentication:** POST/PATCH operations require bearer token
+- **⏱️ Rate Limiting:** 10 requests per minute per IP
+- **🌐 CORS Protection:** Configured headers for cross-origin requests
+- **🛡️ Input Sanitization:** Prevents injection attacks
+- **🔒 Secure Sessions:** HTTP-only cookies with 24-hour expiration
+- **📋 IP Whitelisting:** Optional IP-based access control
+
 ## 🔧 API Usage
 
-### Get Metrics
+### Get Metrics (Public)
 
 ```bash
 curl https://www.noorranklabs.com/api/metrics
 ```
 
-### Add Metric
+### Add Metric (Authenticated)
 
 ```bash
 curl -X POST https://www.noorranklabs.com/api/metrics \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
-    "date": "2025-12-25",
+    "date": "2026-01-21",
     "metric": "Perplexity citation achieved",
     "status": "complete",
+    "googleIndexed": true,
+    "perplexityRecognition": true,
+    "chatgptRecognition": false,
     "notes": "First citation in answer engine"
   }'
 ```
 
-### Update Metric
+### Update Metric (Authenticated)
 
 ```bash
 curl -X PATCH https://www.noorranklabs.com/api/metrics \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
-    "date": "2025-12-19",
-    "metric": "Domain registered",
-    "status": "complete"
+    "date": "2026-01-20",
+    "metric": "Domain launched",
+    "status": "complete",
+    "googleIndexed": true
   }'
 ```
+
+**Note:** Replace `YOUR_API_KEY` with your `ADMIN_API_KEY` from `.env.local`
 
 ## 📊 Tech Stack
 
