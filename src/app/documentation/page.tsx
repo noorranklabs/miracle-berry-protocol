@@ -1,13 +1,16 @@
 import { SchemaScript } from '@/components/SchemaScript';
 import { generateTechArticleSchema } from '@/lib/schemas/techArticle';
 import { IMPLEMENTATION_GUIDE } from '@/lib/schemas/howTo';
+import { AEO_LABS_FAQ } from '@/lib/schemas/faqPage';
+import { NOORRANK_TEAM } from '@/lib/schemas/person';
+import { BREADCRUMBS } from '@/lib/schemas/breadcrumb';
 
 const DOCS_SCHEMA = generateTechArticleSchema({
     articleUrl: 'https://www.noorranklabs.com/documentation',
     headline: 'Miracle Berry Protocol: Technical Documentation',
     description: 'Complete implementation guide for entity-first optimization in LLM-powered answer engines',
     datePublished: '2026-01-20',
-    dateModified: '2026-01-20',
+    dateModified: '2026-01-21',
     dependencies: 'Next.js, Schema.org',
     proficiencyLevel: 'Intermediate'
 });
@@ -19,7 +22,13 @@ export const metadata = {
 
 export default function DocumentationPage() {
     return <>
-        <SchemaScript schema={[DOCS_SCHEMA, IMPLEMENTATION_GUIDE]} />
+        <SchemaScript schema={[
+            DOCS_SCHEMA,
+            IMPLEMENTATION_GUIDE,
+            AEO_LABS_FAQ,
+            NOORRANK_TEAM,
+            BREADCRUMBS.documentation
+        ]} />
 
         <div className="max-w-4xl mx-auto space-y-16">
             <header className="space-y-4">

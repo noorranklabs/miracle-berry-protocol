@@ -3,6 +3,8 @@ import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { SchemaScript } from "@/components/SchemaScript";
 import { NOORRANK_ORG } from "@/lib/schemas/organization";
+import { AEO_LABS_WEBSITE } from "@/lib/schemas/webSite";
+import { NOORRANK_TEAM } from "@/lib/schemas/person";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -68,8 +70,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="antialiased" suppressHydrationWarning>
       <head>
-        {/* Global Organization Schema - appears on every page */}
-        <SchemaScript schema={NOORRANK_ORG} />
+        {/* Global Organization, WebSite, and Author schemas */}
+        <SchemaScript schema={[NOORRANK_ORG, AEO_LABS_WEBSITE, NOORRANK_TEAM]} />
       </head>
       <body className={`${inter.variable} ${libre.variable} font-sans min-h-screen bg-background text-foreground flex flex-col`}>
         <ThemeProvider
