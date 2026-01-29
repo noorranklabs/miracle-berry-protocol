@@ -80,6 +80,16 @@
         "timestamp": "2026-01-29T12:00:00.000Z"
     },
     {
+        "date": "2026-01-30",
+        "metric": "Citation stability test + FAQ schema - Day 11",
+        "status": "complete",
+        "googleIndexed": true,
+        "perplexityRecognition": false,
+        "chatgptRecognition": true,
+        "notes": "ChatGPT citation stable for 48+ hours. Added comprehensive FAQ schema to methodology page with 8 Q&As for improved contextual recognition. Preparing for Day 12 Perplexity/Claude retest.",
+        "timestamp": "2026-01-30T09:00:00.000Z"
+    },
+    {
         "date": "2026-02-03",
         "metric": "Full multi-platform citation achieved",
         "status": "pending",

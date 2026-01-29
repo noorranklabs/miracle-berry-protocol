@@ -1,3 +1,6 @@
+import { SchemaScript } from '@/components/SchemaScript';
+import { MIRACLE_BERRY_FAQ } from '@/lib/schemas/faqPage';
+
 export const metadata = {
     title: 'Methodology',
     description: 'Deep dive into the Miracle Berry Protocol methodology: entity-first optimization strategies for answer engines.',
@@ -5,7 +8,10 @@ export const metadata = {
 
 export default function MethodologyPage() {
     return (
-        <div className="max-w-4xl mx-auto space-y-20">
+        <>
+            <SchemaScript schema={MIRACLE_BERRY_FAQ} />
+            
+            <div className="max-w-4xl mx-auto space-y-20">
             <header className="space-y-6">
                 <h1 className="text-5xl font-bold text-foreground tracking-tight">Methodology</h1>
                 <p className="text-xl text-muted-foreground font-serif leading-relaxed italic max-w-3xl">
@@ -142,6 +148,10 @@ export default function MethodologyPage() {
                         </a>
                     </div>
                 </div>
+            </div>
+        </>
+    );
+}
             </section>
         </div>
 

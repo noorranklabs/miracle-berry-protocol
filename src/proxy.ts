@@ -49,7 +49,7 @@ setInterval(() => {
     }
 }, 5 * 60 * 1000);
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     // Apply rate limiting to API routes
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const rateLimitKey = getRateLimitKey(request);
