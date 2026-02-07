@@ -148,12 +148,8 @@ export default function MethodologyPage() {
                         </a>
                     </div>
                 </div>
-            </div>
-        </>
-    );
-}
             </section>
         </div>
-
+        </>
     );
 }
