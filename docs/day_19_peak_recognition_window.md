@@ -477,6 +477,230 @@ Entity-first + structured data + multi-source validation = systematic, predictab
 
 ---
 
+## ✅ ACTUAL TEST RESULTS - Day 19
+
+**Test Completed**: February 10, 2026
+
+### ChatGPT - STABLE ✅
+**Status**: 10+ days continuous recognition
+
+**Query**: "What is NoorRank Labs?"
+
+**Result**: ✅ **EXCELLENT STABILITY**
+- Full entity recognition maintained
+- Cited noorranklabs.com as primary source
+- Detailed explanation of AEO methodology
+- Mentioned Miracle Berry Protocol experiment
+- Listed focus areas: Entity Recognition, Knowledge Graph Integration, Digital Authority
+- Emphasized semantic technologies (JSON-LD, schema.org)
+
+**Analysis**: ChatGPT recognition is rock-solid. 10+ days with zero degradation. Entity permanently established in knowledge base.
+
+---
+
+### Perplexity - RECOGNITION LOST ❌
+**Status**: Reverted to fruit information
+
+**Query**: "What is the Miracle Berry Protocol?"
+
+**Result**: ❌ **NO RECOGNITION**
+- Only miracle berry fruit (Synsepalum dulcificum) information
+- Medical/therapeutic context (cancer treatment, taste perception)
+- NO mention of NoorRank Labs
+- NO mention of AEO methodology
+- NO citation of noorranklabs.com
+
+**Comparison to Day 17**:
+- Day 17: ✅ Full recognition, cited noorranklabs.com extensively
+- Day 19: ❌ Completely reverted to fruit information
+
+**Critical Analysis**:
+This is an **unexpected and significant finding**. Possible explanations:
+
+1. **Temporary Indexing**: Day 17 recognition may have been temporary cache/index that expired
+2. **Query Sensitivity**: Exact same query produced different results (algorithmic variation)
+3. **Knowledge Graph Instability**: Entity not fully established, still competing with fruit disambiguation
+4. **Index Refresh**: Perplexity may have re-crawled and lost entity context
+5. **Ranking Fluctuation**: Entity exists but fruit sources outrank it today
+
+**Lesson Learned**: 
+Unlike ChatGPT's stable recognition, Perplexity shows volatility. Recognition on Day 17 did NOT guarantee permanent entity establishment. More reinforcement or longer timeline may be needed.
+
+---
+
+### Claude - NOT RECOGNIZED YET ❌
+**Status**: Day 3 of expected window (Days 17-20)
+
+**Queries Tested**:
+1. ❌ "What is the Miracle Berry Protocol?" → Only fruit info
+2. ❌ "Tell me about NoorRank Labs" → No information found
+3. ❌ "What is the Miracle Berry Protocol by NoorRank?" → Only fruit info
+4. ❌ "Who developed the Miracle Berry Protocol?" → No developer found
+
+**Claude's Behavior**:
+- Performed multiple web searches
+- Found only miracle berry fruit sources
+- Specifically stated "NoorRank Labs doesn't appear to exist"
+- Found CLINMIR protocol (cancer research), but not MBP
+- Asked user for additional context
+
+**Analysis**: 
+❌ No recognition yet on Day 19 (peak probability day)
+⏳ Day 20 is final day of primary window (Days 17-20)
+📊 Pattern differs from ChatGPT (Day 9) and Perplexity (Day 17)
+
+**Implications**:
+- Claude may require extended timeline (Days 21-23)
+- Or web search indexing lags behind other platforms
+- Peak probability estimate (85-90%) did not materialize
+
+---
+
+## 📊 Day 19 Summary
+
+### Recognition Status
+
+| Platform | Day 17 Status | Day 19 Status | Change | Days Recognized |
+|----------|---------------|---------------|--------|------------------|
+| **ChatGPT** | ✅ Recognized | ✅ **STABLE** | None | 10+ days |
+| **Perplexity** | ✅ Recognized | ❌ **LOST** | ⚠️ Reverted | 0 days (unstable) |
+| **Claude** | ❌ Not yet | ❌ **Not yet** | None | 0 days |
+
+**Current Recognition**: 1 of 3 platforms (ChatGPT only)
+
+---
+
+## 🔍 Critical Findings
+
+### Finding 1: ChatGPT Stability is Exceptional
+✅ **10+ days** of continuous, high-quality recognition
+✅ **Zero degradation** in response quality or citation
+✅ **Entity permanently established** in knowledge base
+
+**Conclusion**: Once ChatGPT recognizes an entity, stability is excellent.
+
+---
+
+### Finding 2: Perplexity Recognition is Volatile ⚠️
+❌ Day 17: Full recognition with citations
+❌ Day 19: Completely reverted to fruit information
+
+**Conclusion**: Perplexity recognition is NOT stable within 72 hours. Unlike ChatGPT, early recognition doesn't guarantee permanence.
+
+**Possible Causes**:
+1. **Index volatility** - Perplexity may re-rank sources frequently
+2. **Query sensitivity** - Exact phrasing affects results more than ChatGPT
+3. **Source competition** - Established fruit sources outcompete new entity
+4. **Shorter memory** - Knowledge graph updates more frequently
+
+---
+
+### Finding 3: Claude Timeline Extended
+❌ Not recognized by Day 19 (Day 3 of window)
+⏳ Day 20 is final day of predicted window
+📊 May require Days 21-23 extended timeline
+
+**Conclusion**: Claude's indexing cycle differs from ChatGPT and Perplexity. Longer timeline required.
+
+---
+
+## 🎯 Implications for Experiment
+
+### Timeline Hypothesis
+**Original Prediction**: 
+- ChatGPT: Days 7-14 → ✅ Actual Day 9 (validated)
+- Perplexity: Days 14-17 → ⚠️ Day 17 unstable (partially validated)
+- Claude: Days 17-20 → ⏳ Testing continues (Day 20 final window day)
+
+**Revised Understanding**:
+- ChatGPT: Predictable, stable once achieved
+- Perplexity: Recognition occurs within window but stability varies
+- Claude: May require extended timeline beyond Day 20
+
+---
+
+### Platform Differences Discovered
+
+| Factor | ChatGPT | Perplexity | Claude |
+|--------|---------|------------|--------|
+| **Recognition Speed** | Day 9 | Day 17 | Not yet (Day 19) |
+| **Stability** | Excellent (10+ days) | Volatile (lost by Day 19) | Unknown |
+| **Query Sensitivity** | Low | High | Unknown |
+| **Knowledge Graph** | Permanent | Dynamic/changing | Testing |
+
+---
+
+## 📋 Next Steps - Day 20
+
+### Priority 1: Perplexity Re-test
+**Goal**: Determine if Day 19 loss is permanent or temporary
+
+**Test Variations**:
+1. "What is the Miracle Berry Protocol?" (same query)
+2. "What is the Miracle Berry Protocol for SEO?"
+3. "Tell me about NoorRank Labs"
+4. "What are AEO methodologies?"
+
+**Analysis**: Multiple query angles to determine if recognition exists but ranking varies, or if entity is completely lost.
+
+---
+
+### Priority 2: Claude Final Window Test
+**Goal**: Last day of primary recognition window (Days 17-20)
+
+**Expectation**: 
+- If recognized Day 20: Timeline validated (late window)
+- If not recognized: Extended window Days 21-23 needed
+
+---
+
+### Priority 3: ChatGPT Continued Monitoring
+**Goal**: Verify stability remains excellent
+
+**Expected**: ✅ Stable (11+ days)
+
+---
+
+## 🧪 Experimental Insights
+
+### What We Learned
+
+**Positive Findings**:
+1. ✅ ChatGPT recognition is **highly stable** (10+ days, zero issues)
+2. ✅ Entity-first methodology **works for ChatGPT**
+3. ✅ Structured data + multi-source validation = recognition within 9 days
+
+**Challenges Discovered**:
+1. ⚠️ **Perplexity recognition is NOT stable** - can revert within days
+2. ⚠️ **Platform stability varies widely** - ChatGPT ≠ Perplexity patterns
+3. ⚠️ **Claude timeline longer than predicted** - may need 21-23 days
+
+**Methodology Adjustments Needed**:
+1. **Stability testing period**: Must extend beyond 2-3 days for Perplexity
+2. **Recognition ≠ Establishment**: Initial recognition doesn't guarantee permanence
+3. **Platform-specific strategies**: Each AI system requires different reinforcement
+
+---
+
+## 💡 Key Lesson from Day 19
+
+**Recognition is NOT the same as establishment.**
+
+Perplexity recognized the entity on Day 17, but that recognition was not permanent. By Day 19, it completely reverted to fruit information.
+
+**Implication**: True entity establishment requires:
+- ✅ Initial recognition (achieved)
+- ✅ **Sustained recognition** (failed for Perplexity)
+- ✅ **Stability verification** (ongoing)
+
+**ChatGPT proved**: 10+ days stable = true establishment
+
+**Perplexity proved**: Day 17 recognition ≠ permanent establishment
+
+**Day 20 will test**: Can Perplexity recognition be regained?
+
+---
+
 ## USER ACTION REQUIRED - Day 19 Testing
 
 ### Quick Testing Checklist (20 minutes total)
